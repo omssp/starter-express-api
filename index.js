@@ -14,7 +14,7 @@ app.all('*', (req, res) => {
         res.send();
     } else {
         const targetURL = process.env.TARGET_URL
-        request({ url: targetURL + req.url, method: req.method, json: req.body, headers: { 'Authorization': req.header('Authorization') } },
+        fetch({ url: targetURL + req.url, method: req.method, json: req.body, headers: { 'Authorization': req.header('Authorization') } },
             function (error, response, body) {
                 if (error) {
                     console.error('error: ' + response.statusCode)
