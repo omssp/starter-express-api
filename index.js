@@ -15,7 +15,7 @@ var server = http.createServer(function(req, res) {
   options.method = req.method;
 //   options.agent = false;
 
-//   options.headers['host'] = options.host;
+  options.headers['host'] = options.host;
 
   var connector = (options.protocol == 'https:' ? https : http).request(options, function(serverResponse) {
     console.log('<== Received res for', serverResponse.statusCode, reqUrl);
