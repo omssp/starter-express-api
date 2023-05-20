@@ -17,7 +17,7 @@ app.all('*', async (req, res) => {
             method: req.method,
             json: req.body,
             headers: { 'Authorization': req.header('Authorization') }
-        })).json());
+        })).text());
     }
 })
 app.listen(process.env.PORT || 3000)
