@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-app.all('*', (req, res) => {
+app.all('*', async (req, res) => {
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
@@ -13,7 +13,7 @@ app.all('*', (req, res) => {
         res.send();
     } else {
         const targetURL = process.env.TARGET_URL
-        res.send(fetch(targetURL + req.url, {
+        res.send(await fetch(targetURL + req.url, {
             method: req.method,
             json: req.body,
             headers: { 'Authorization': req.header('Authorization') }
