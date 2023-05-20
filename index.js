@@ -11,7 +11,7 @@ var server = http.createServer(function(req, res) {
   req.pause();
 
   var options = url.parse(reqUrl);
-//   options.headers = req.headers;
+  options.headers = req.headers;
   options.method = req.method;
 //   options.agent = false;
 
