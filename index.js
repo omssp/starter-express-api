@@ -11,11 +11,11 @@ var server = http.createServer(function(req, res) {
   req.pause();
 
   var options = url.parse(reqUrl);
-  options.headers = req.headers;
+//   options.headers = req.headers;
   options.method = req.method;
-  options.agent = false;
+//   options.agent = false;
 
-  options.headers['host'] = options.host;
+//   options.headers['host'] = options.host;
 
   var connector = (options.protocol == 'https:' ? https : http).request(options, function(serverResponse) {
     console.log('<== Received res for', serverResponse.statusCode, reqUrl);
