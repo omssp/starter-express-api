@@ -11,6 +11,7 @@ var server = http.createServer(function(req, res) {
   req.pause();
 
   var options = url.parse(reqUrl);
+  options.headers = {}
   options.headers['Authorization'] = req.headers['authorization'] || req.headers['Authorization'];
   options.method = req.method;
 //   options.agent = false;
