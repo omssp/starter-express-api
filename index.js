@@ -13,11 +13,11 @@ app.all('*', async (req, res) => {
         res.send();
     } else {
         const targetURL = process.env.TARGET_URL
-        res.send(await fetch(targetURL + req.url, {
+        res.send(await (await fetch(targetURL + req.url, {
             method: req.method,
             json: req.body,
             headers: { 'Authorization': req.header('Authorization') }
-        }));
+        })).json());
     }
 })
 app.listen(process.env.PORT || 3000)
