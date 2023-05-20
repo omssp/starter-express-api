@@ -13,12 +13,11 @@ app.all('*', (req, res) => {
         res.send();
     } else {
         const targetURL = process.env.TARGET_URL
-        fetch({ url: targetURL + req.url, method: req.method, json: req.body, headers: { 'Authorization': req.header('Authorization') } },
-            function (error, response, body) {
-                if (error) {
-                    console.error('error: ' + response.statusCode)
-                }
-            }).pipe(res);
+        fetch(targetURL + req.url, {
+            method: req.method,
+            json: req.body,
+            headers: { 'Authorization': req.header('Authorization') }
+        }).pipe(res);
     }
 })
 app.listen(process.env.PORT || 3000)
